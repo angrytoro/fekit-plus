@@ -1,12 +1,12 @@
 {
-    "author": "hao.lin <hao.lin@qunar.com>",
-    "name": "fekit",
+    "author": "blog.angrytoro.com",
+    "name": "fekit-plus",
     "description": "FE Toolkit",
-    "version": "0.2.96",
-    "bin": "./bin/fekit",
+    "version": "0.1.0",
+    "bin": "./bin/fe",
     "repository": {
         "type": "git",
-        "url": "git://github.com/rinh/fekit.git"
+        "url": "git@github.com:angrytoro/fekit-plus.git"
     },
     "dependencies": {
         "coffee-script": "1.4.x",

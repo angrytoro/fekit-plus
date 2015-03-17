@@ -28,15 +28,18 @@ exports.set_options = ( optimist ) ->
 
 rsync = (opts) ->
     _args = [
-        "-rzcv",
-        "--chmod=a='rX,u+w'",
-        "--rsync-path='sudo rsync'",
+        "-rzcvp",
+        "--chmod=a='rX,u+w,g+w'",
+        "--rsync-path='#{if opts.sudo then 'sudo ' else ''}rsync'",
         "#{opts.local}",
         "#{opts.user}#{opts.host}:#{opts.path}",
         "#{opts.include || ''}",
-        "#{opts.exclude || ''}",
-        "--temp-dir=/tmp"
+        "#{opts.exclude || ''}"
     ]
+
+    if opts.port then _args.push '-e \'ssh -p ' + opts.port + '\''
+
+    if opts.sudo and opts['temp-dir'] then _args.push '--temp-dir=' + opts['temp-dir'];
 
     if opts.delete then _args.push '--delete'
     args = _args.join(' ')
@@ -51,13 +54,13 @@ rsync = (opts) ->
         if stdout then utils.logger.log stdout
         if stderr then utils.logger.error stderr
 
-        unless opts.nonexec
-            common_shell = 
-                user : opts.user
-                host : opts.host
-                shell : "sudo /home/q/tools/bin/fekit_common_shell.sh \"#{opts.path}\""
-            shell common_shell , () ->
-                if opts.shell then shell opts
+        # unless opts.nonexec
+        #     common_shell = 
+        #         user : opts.user
+        #         host : opts.host
+        #         shell : "sudo /home/q/tools/bin/fekit_common_shell.sh \"#{opts.path}\""
+        #     shell common_shell , () ->
+        #         if opts.shell then shell opts
 
 shell = (opts,cb) ->
     cmd = opts.shell.replace /'/g, "\\'"
@@ -108,6 +111,9 @@ exports.run = (options) ->
         local : (conf.local || './')
         user  : (if conf.user then conf.user + "@" else "")
         shell : conf.shell
+        sudo  : conf.sudo
+        port  : conf.port
+        'temp-dir'  : conf['temp-dir']
 
     opts.delete = true if options.delete
     opts.nonexec = true if options.nonexec
