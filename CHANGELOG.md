@@ -1,3 +1,7 @@
+# 1.0.0
+* modify: sync 修改了rsync的参数，把-rzcv --chmod=a='rX,u+w',改成--rzcvp --chmod=a='rX,u+w,g+w'
+* add: 为sync 添加了多个配置 port：指定ssh端口，sudo：是否sudo rsync，temp-dir：判断是否设置--temp-dir。
+
 # 0.2.96
 * fixed: 修改了 versions.mapping 文件名一致会被覆盖的问题，将文件路径恢复
 

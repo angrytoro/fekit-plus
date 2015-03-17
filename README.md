@@ -1,6 +1,8 @@
 FEKIT
 =====================
 
+由于fekit定制化有点重，因此特意弄出这个版本，希望把它弄得更加灵活。
+
 ## fekit是什么? ##
 
 ##### fekit是一套前端开发工具, 其中包含了
@@ -21,7 +23,7 @@ FEKIT
 
 #### 安装
     
-    npm install fekit -g
+    npm install fekit-plus -g
 
     npm config set user 0
     npm config set unsafe-perm true

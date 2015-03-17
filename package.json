@@ -1,13 +1,16 @@
 {
     "author": "blog.angrytoro.com",
     "name": "fekit-plus",
-    "description": "FE Toolkit",
-    "version": "0.1.0",
+    "description": "FE Toolkit 增强版",
+    "version": "1.0.0",
     "bin": "./bin/fe",
     "repository": {
         "type": "git",
         "url": "git@github.com:angrytoro/fekit-plus.git"
     },
+    "contributors": [
+        {"name" : "rinh", "email" : "hao.lin@qunar.com"}
+    ],
     "dependencies": {
         "coffee-script": "1.4.x",
         "underscore": "1.4.x",
