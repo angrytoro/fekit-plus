@@ -1,5 +1,4 @@
 {
-    "author": "blog.angrytoro.com",
     "name": "fekit-plus",
     "description": "FE Toolkit 增强版",
     "version": "1.0.0",
@@ -7,6 +6,10 @@
     "repository": {
         "type": "git",
         "url": "git@github.com:angrytoro/fekit-plus.git"
+    },
+    "author": {
+        "name": "angrytoro",
+        "email": "angrytoro@gmail.com"
     },
     "contributors": [
         {"name" : "rinh", "email" : "hao.lin@qunar.com"}
