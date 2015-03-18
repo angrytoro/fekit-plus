@@ -1,8 +1,8 @@
 {
-    "name": "fekit-plus",
-    "description": "FE Toolkit 增强版",
+    "name": "fes",
+    "description": "fekit 增强版",
     "version": "1.0.0",
-    "bin": "./bin/fe",
+    "bin": "./bin/fekit",
     "repository": {
         "type": "git",
         "url": "git@github.com:angrytoro/fekit-plus.git"
