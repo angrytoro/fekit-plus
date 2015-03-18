@@ -1,5 +1,5 @@
 {
-    "name": "fes",
+    "name": "fet",
     "description": "fekit 增强版",
     "version": "1.0.0",
     "bin": "./bin/fekit",
