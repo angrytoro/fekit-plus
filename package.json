@@ -1,8 +1,8 @@
 {
     "name": "ft",
     "description": "fekit 增强版",
-    "version": "1.0.0",
-    "bin": "./bin/fekit",
+    "version": "1.0.1",
+    "bin": "./bin/ft",
     "repository": {
         "type": "git",
         "url": "git@github.com:angrytoro/fekit-plus.git"
