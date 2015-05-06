@@ -1,8 +1,31 @@
+#1.0.2
+merge
 # 1.0.0
 * modify: sync 修改了rsync的参数，把-rzcv --chmod=a='rX,u+w',改成--rzcvp --chmod=a='rX,u+w,g+w'
 * add: 为sync 添加了多个配置 port：指定ssh端口，sudo：是否sudo rsync，temp-dir：判断是否设置--temp-dir。
+# 0.2.103
+* fixed: 修复 velocity 引用变量没有成功的问题
+
+# 0.2.102
+* fixed: 修复 velocity 解析时的错误
+
+# 0.2.101
+* fixed: 升级 http-proxy 以修复其使用 eventemitter3 的错误
+
+# 0.2.100
+* fixed: 修正发布点
+
+# 0.2.99
+* add: 增加环境变量的设置
+
+# 0.2.98
+* add: 增加 server 的 boost 选项，默认情况不开启
+
+# 0.2.97
+* fixed: 修正 utils.path.is_absolute_path 对 windows 的判断错误
 
 # 0.2.96
+* add: 优化 pack 及 min 的编译速度
 * fixed: 修改了 versions.mapping 文件名一致会被覆盖的问题，将文件路径恢复
 
 # 0.2.95
