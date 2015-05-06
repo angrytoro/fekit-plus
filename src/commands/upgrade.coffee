@@ -22,7 +22,7 @@ exports.run = ( options ) ->
             )(i.name)
 
     tasks.push ( done ) ->
-        utils.proc.spawn npm , [ 'install', 'fekit' , '-g' ] , () ->
+        utils.proc.spawn npm , [ 'install', 'ft' , '-g' ] , () ->
             done()
 
     async.series tasks , ( err ) ->
