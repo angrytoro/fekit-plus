@@ -1,8 +1,30 @@
-#1.0.2
-merge
+#1.0.3
+* merge
+
 # 1.0.0
 * modify: sync 修改了rsync的参数，把-rzcv --chmod=a='rX,u+w',改成--rzcvp --chmod=a='rX,u+w,g+w'
 * add: 为sync 添加了多个配置 port：指定ssh端口，sudo：是否sudo rsync，temp-dir：判断是否设置--temp-dir。
+
+# 0.2.110
+* removed: 删除误添加进来的 haha.txt
+
+# 0.2.109
+* add: 增加 fekit completion 命令
+
+# 0.2.108
+* upgrade: node-sass 升级及去重优化
+* fixed: ignore 修复
+
+# 0.2.107
+* fixed: 回滚 uglify-js 到 1.3.x
+
+# 0.2.106
+* fixed: 修复 versions.mapping 版本号问题
+* add: 增加 .fekitignore 功能
+
+# 0.2.105
+* update: 升级 node-sass 到 3.0.0 稳定版
+
 # 0.2.103
 * fixed: 修复 velocity 引用变量没有成功的问题
 

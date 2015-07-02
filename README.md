@@ -22,7 +22,8 @@ FEKIT
 * linux: 自行使用 apt-get(ubuntu) 或 yum(centos) 安装
 
 #### 安装
-    
+
+    export SASS_BINARY_SITE="http://ued.qunar.com/node-sass/release" # 解决 node-sass 编译困难
     npm install ft -g
 
     npm config set user 0
