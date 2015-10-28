@@ -1,13 +1,12 @@
-compiler = require "../compiler/compiler"
-urlrouter = require "urlrouter"
-utils = require "../util"
-dns = require "dns"
-qs = require "querystring"
-sysurl = require "url"
-syspath = require "path"
-sysfs = require "fs"
-md5 = require "MD5"
+compiler       = require "../compiler/compiler"
+dns            = require "dns"
 helper_reverse = require "./helper_reverse"
+qs             = require "querystring"
+sysfs          = require "fs"
+syspath        = require "path"
+sysurl         = require "url"
+urlrouter      = require "urlrouter"
+utils          = require "../util"
 
 # ---------------------------
 
@@ -20,7 +19,7 @@ charset = ";charset=UTF-8"
 PARAM_CACHE = {}
 
 toMD5 = ( str ) ->
-    m = md5(str).toString().slice(9).slice(0,16)
+    m = utils.md5(str).toString().slice(9).slice(0,16)
     PARAM_CACHE[m] = str
     return m
 

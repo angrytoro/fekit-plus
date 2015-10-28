@@ -1,9 +1,87 @@
-#1.0.3
-* merge
-
 # 1.0.0
 * modify: sync 修改了rsync的参数，把-rzcv --chmod=a='rX,u+w',改成--rzcvp --chmod=a='rX,u+w,g+w'
 * add: 为sync 添加了多个配置 port：指定ssh端口，sudo：是否sudo rsync，temp-dir：判断是否设置--temp-dir。
+
+# 0.2.134
+* modified: 修改模块 guid 为 md5(source + path)
+
+# 0.2.133
+* fixed: 增加 autoprefixer 出错处理方式
+
+# 0.2.132
+* added: 新增 autoprefixer 支持
+
+# 0.2.131
+* fixed: velocity.java 多 root 加载问题
+
+# 0.2.130
+* updated: 升级 node-sass 3.3.2
+
+# 0.2.129
+* fixed: windows 平台 velocity 加载路径问题
+
+# 0.2.128
+* fixed: server --proxy 的 bug
+
+# 0.2.127
+* added: 添加 json 模块引用支持
+
+# 0.2.126
+* upgrade: 升级 node-tar
+
+# 0.2.125
+* removed: 去除对 .ng、.ngc、.styl 文件编译支持
+* added: 增加新 velocity 模块环境变量支持
+
+# 0.2.124
+* fixed: 修复 helper\_reverse 一枚 bug
+* 替换 submodule git 协议为 https
+* 去除 jar 包，引入 velocity.java 模块
+* server 指令增加 --without-java 参数
+
+# 0.2.123
+* 改进了一下 node-sass 的安装
+
+# 0.2.122
+* fixed: 防止 mac 弹提示
+
+# 0.2.121
+* fixed: test 命令错误
+* added: java 实现 velocity 中间件，http://gitlab.corp.qunar.com/fed/velocity-for-fekit/
+
+# 0.2.120
+* fixed: plugin 命令在 windows 上无法安装的问题
+
+# 0.2.119
+* fixed: 修改 sass 编译模块上一版本的疏忽
+* fixed: 编译报错时，result[0] 取不到问题
+* removed: 去除不可用的 liveload 支持
+
+# 0.2.118
+* fixed: window下import css文件路径编译错误的问题
+
+# 0.2.117
+* 去除第三方 MD5 模块，转用内置模块 crypto
+
+# 0.2.116
+* update sass 支持更多形式的import;修复css中require失败的问题;支持打印错误信息的上下文
+* 对 compute-cluster 做最大进程数限制
+
+# 0.2.115
+* fixed: sass import 私有文件的问题
+
+# 0.2.114
+* fixed: npmrc 设置了 prefix 的安装问题
+
+# 0.2.113
+* 解决 node-sass 安装困难的问题
+
+# 0.2.112
+* fixed: Scss Import Once 问题修复
+* fixed: versions.mapping 扩展名不一致的问题
+
+# 0.2.111
+* 优化 completion 命令
 
 # 0.2.110
 * removed: 删除误添加进来的 haha.txt
@@ -71,7 +149,7 @@
 
 # 0.2.89
 * add: vm 支持 include
-* add: vmjs 中可以使用 request , response 
+* add: vmjs 中可以使用 request , response
 * fix: 开发时 require 区分大小写
 * fix: fekit test 命令找不到测试用例时的提示不够友好且无法找到命令 Fixes #57
 * add: fekit vm 添加 layout Fixes #64
@@ -214,7 +292,7 @@
 * fix: fekit min 单文件模式下报错输出不正确的问题
 * change: less 解析使用 [qless.js](https://github.com/rinh/qless.js)
 
-# 0.2.45 
+# 0.2.45
 * change: 不再使用 vendor 中提供的 tar
 
 # 0.2.44 #
@@ -274,7 +352,7 @@
 # 0.2.26 #
 * change: fekit publish 时，过滤.git , .svn
 * fix: fekit server 刷新 cache 时消除 deps 的内容
-* change: fekit min 支持只生成 ver 或 mapping 
+* change: fekit min 支持只生成 ver 或 mapping
 
 # 0.2.25 #
 * change: fekit server -r aaa:bbb，进行路由功能时，不自动添加前后斜线 https://github.com/rinh/fekit/issues/25
@@ -318,7 +396,7 @@
 * add: 兼容 0.1.x 的源码格式
 
 # 0.2.15  #
-* fix: server transfer 没有正确处理非 -t 的情况 
+* fix: server transfer 没有正确处理非 -t 的情况
 * add: 导出 minCode 功能
 
 # 0.2.14 #
@@ -367,4 +445,4 @@
 
 # 0.0.1 #
 
-* initial 
+* initial

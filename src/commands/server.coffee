@@ -3,7 +3,6 @@ fs = require "fs"
 connect = require "connect"
 http = require "http"
 https = require "https"
-tinylr = require "tiny-lr"
 compiler = require "../compiler/compiler"
 http_proxy = require "./_server_http_proxy"
 host_rule = require "./_server_host_rule"
@@ -32,9 +31,6 @@ exports.set_options = ( optimist ) ->
     optimist.alias 'm' , 'mock'
     optimist.describe 'm' , '指定mock配置文件'
 
-    optimist.alias 'l' , 'livereload'
-    optimist.describe 'l' , '是否启用livereload'
-
     optimist.alias 'o' , 'proxy'
     optimist.describe 'o' , '是否启用代理服务器, 默认端口为13180'
 
@@ -43,6 +39,9 @@ exports.set_options = ( optimist ) ->
 
     optimist.alias 'e' , 'environment'
     optimist.describe 'e' , '设置环境为`local`,`dev`,`beta`或`prd`'
+
+    optimist.alias 'w', 'without-java'
+    optimist.describe 'w', '不使用 java 编译 velocity'
 
 setupProxyServer = ( options ) ->
 
@@ -60,6 +59,8 @@ setupServer = ( options ) ->
             .use( middleware.fekit(options) )
             .use( connect.static( options.cwd , { hidden: true, redirect: true })  )
             .use( connect.directory( options.cwd ) )
+    # TODO: <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    # TODO: padding: 80px 20px;
 
 
 
@@ -76,22 +77,6 @@ setupServer = ( options ) ->
     else
 
         listenPort( http.createServer( app ) , options.port || 80 )
-
-
-setupLivereload = ( options ) ->
-
-    return unless options.livereload
-
-    lrsrv = tinylr()
-    lrsrv.listen 35729, () ->
-        console.log('[LOG]: LiveReload Server Listening ...')
-
-    extlist = compiler.path.EXTLIST.map (ext) ->
-                return "**/*#{ext}"
-
-    require("gaze") extlist , ( err , watcher ) ->
-        @on 'all', (event, filepath) ->
-            lrsrv.changed({ body:{  files:[filepath]  }})
 
 
 
@@ -114,8 +99,6 @@ exports.run = ( options ) ->
 
     if options.proxy or options.reverse
         options.rule = host_rule.load( if typeof options.proxy is 'string' then options.proxy else options.reverse )
-
-    setupLivereload( options )
 
     setupServer( options )
 

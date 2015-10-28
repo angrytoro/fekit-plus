@@ -1,11 +1,14 @@
 syspath = require 'path'
 utils = require "../util"
-md5 = require "MD5"
 computecluster = require('compute-cluster');
+
+max = Math.ceil(require('os').cpus().length * 1.25)
+max = 5 if max > 5
 cc = new computecluster({
   module: utils.path.join( __dirname , '_min_worker.js' )
-  max_backlog: -1
-});
+  max_backlog: -1,
+  max_processes: max
+})
 
 
 exports.usage = "压缩/混淆项目文件"
@@ -37,6 +40,7 @@ save_versions_mapping = ( mapping_file_path , mapping ) ->
     str = []
 
     for k , v of mapping
+        k = k.replace /\.[^.\/\\]+$/, syspath.extname(v.minpath)
         str.push( k.replace(/\\/g,"/") + '#' + v.ver )
 
     utils.file.io.write( mapping_file_path , str.join('\n') )
@@ -93,13 +97,13 @@ exports.run = ( options ) ->
                 file : i
                 vertype : vertype
             } , (err, result ) ->
-                md5code = result[0]
-                dest = result[1]
-
                 if err
                     utils.logger.error err
                     cc.exit()
                     utils.exit(1)
+
+                md5code = result[0]
+                dest = result[1]
 
                 conf = utils.config.parse( options.cwd )
                 o = conf.get_export_info i
