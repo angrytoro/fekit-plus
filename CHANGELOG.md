@@ -2,6 +2,9 @@
 * modify: sync 修改了rsync的参数，把-rzcv --chmod=a='rX,u+w',改成--rzcvp --chmod=a='rX,u+w,g+w'
 * add: 为sync 添加了多个配置 port：指定ssh端口，sudo：是否sudo rsync，temp-dir：判断是否设置--temp-dir。
 
+# 0.2.136
+* modified: 使用 node-sass-china 替代之前方案
+
 # 0.2.134
 * modified: 修改模块 guid 为 md5(source + path)
 

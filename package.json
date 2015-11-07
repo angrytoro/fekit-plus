@@ -1,7 +1,7 @@
 {
     "name": "ft",
     "description": "fekit 增强版",
-    "version": "1.0.4",
+    "version": "1.0.41",
     "bin": "./bin/ft",
     "repository": {
         "type": "git",
@@ -32,6 +32,7 @@
         "mkdirp": "0.3.x",
         "mocha": "1.7.x",
         "ncp": "0.4.x",
+        "node-sass-china": "^3.4.1",
         "optimist": "0.3.x",
         "postcss": "^5.0.9",
         "prompt": "0.2.x",
@@ -59,7 +60,6 @@
     },
     "license": "MIT",
     "scripts": {
-        "prepublish": "cake build",
-        "postinstall": "node scripts/postinstall.js"
+        "prepublish": "cake build"
     }
 }
