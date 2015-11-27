@@ -54,6 +54,7 @@ setupServer = ( options ) ->
             .use( connect.logger( 'tiny' ) )
             .use( connect.query() )
             .use( connect.bodyParser() )
+            .use( middleware.fontcors())
             .use( middleware.mock( options ) )
             .use( middleware.velocity(options) )
             .use( middleware.fekit(options) )
