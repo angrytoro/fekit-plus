@@ -1,6 +1,8 @@
 # 1.0.0
 * modify: sync 修改了rsync的参数，把-rzcv --chmod=a='rX,u+w',改成--rzcvp --chmod=a='rX,u+w,g+w'
 * add: 为sync 添加了多个配置 port：指定ssh端口，sudo：是否sudo rsync，temp-dir：判断是否设置--temp-dir。
+* add: 增加对字体跨域的支持
+* add: 增加对框架版本号的处理，例如一个框架叫frame,当用户请求host/frame/1.0.1/prd/js/base.js的时候，会重定向到host/frame/prd/js/base.js
 
 # 0.2.136
 * modified: 使用 node-sass-china 替代之前方案
