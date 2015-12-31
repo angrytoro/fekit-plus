@@ -57,6 +57,7 @@ setupServer = ( options ) ->
             .use( middleware.fontcors())
             .use( middleware.mock( options ) )
             .use( middleware.velocity(options) )
+            .use( middleware.frameVersion() )
             .use( middleware.fekit(options) )
             .use( connect.static( options.cwd , { hidden: true, redirect: true })  )
             .use( connect.directory( options.cwd ) )

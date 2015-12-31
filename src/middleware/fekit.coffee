@@ -109,9 +109,7 @@ module.exports = ( options ) ->
             app.get utils.UrlConvert.PRODUCTION_REGEX , ( req , res , next ) =>
 
                 host = req.headers['host']
-                #重置增加对框架版本号的支持，例如xxx.com/frame/1.1.0/prd/js/base.js
-                url = req.url.replace(/(.*\/)(\d(\.\d)+)\/(.*)/, ($0, $1, $2, $3, $4) => return $1 + $4)
-                url = sysurl.parse(url)
+                url = sysurl.parse(req.url)
                 p = syspath.join( ROOT , url.pathname )
                 params = qs.parse( toPARAM(url.query) or url.query )
                 is_deps = params["no_dependencies"] is "true"
