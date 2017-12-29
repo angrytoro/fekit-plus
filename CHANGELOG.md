@@ -1,3 +1,7 @@
+# 1.0.45
+* 删除sys，将print换成console.log
+* 新增生成versions.json文件
+
 # 1.0.0
 * modify: sync 修改了rsync的参数，把-rzcv --chmod=a='rX,u+w',改成--rzcvp --chmod=a='rX,u+w,g+w'
 * add: 为sync 添加了多个配置 port：指定ssh端口，sudo：是否sudo rsync，temp-dir：判断是否设置--temp-dir。

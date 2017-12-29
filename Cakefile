@@ -1,7 +1,6 @@
 path = require 'path'
 fs = require 'fs'
 
-{print} = require 'sys'
 {spawn} = require 'child_process'
 {exec} = require 'child_process'
 
@@ -61,8 +60,8 @@ test = () ->
 
 
 echo = (child) ->
-  child.stdout.on "data", (data) -> print data.toString()
-  child.stderr.on "data", (data) -> print data.toString()
+  child.stdout.on "data", (data) -> console.log data.toString()
+  child.stderr.on "data", (data) -> console.log data.toString()
   child
 
 install = (cb) ->

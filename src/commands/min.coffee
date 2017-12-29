@@ -45,6 +45,16 @@ save_versions_mapping = ( mapping_file_path , mapping ) ->
 
     utils.file.io.write( mapping_file_path , str.join('\n') )
 
+save_versions_json = ( json_file_path , mapping ) ->
+
+    json = {}
+
+    for k , v of mapping
+        k = k.replace /\.[^.\/\\]+$/, syspath.extname(v.minpath)
+        json[k.replace(/\\/g,"/")] = v.ver
+
+    utils.file.io.write( json_file_path , JSON.stringify(json) )
+
 
 
 exports.run = ( options ) ->
@@ -83,6 +93,7 @@ exports.run = ( options ) ->
     done = () ->
         if vertype is 0 or vertype is 2
             save_versions_mapping( syspath.join( options.cwd , './ver/versions.mapping' ) , script_global.EXPORT_MAP )
+            save_versions_json(syspath.join( options.cwd , './ver/versions.json' ) , script_global.EXPORT_MAP )
         conf.doRefs( options )
         conf.doScript "postmin" , script_global
         utils.logger.log("DONE.")
